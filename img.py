@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Image
 from reportlab.lib.pagesizes import A4, landscape
