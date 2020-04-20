@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 import fire
 import os
-
 
 def main():
     if not os.path.exists('./temp'):
