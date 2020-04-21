@@ -30,7 +30,7 @@ def download(url):
     except:
         print("Timeout - start download anyway.")
 
-    print(f'道客巴巴: 《{title}》')
+    print(f'道客巴巴: <'+ title + '>')
     time.sleep(5)
 
     try:
@@ -54,10 +54,10 @@ def download(url):
         # 缩放
         driver.find_element_by_id('zoomInButton').click()
         time.sleep(0.5)
-
-    if os.path.exists(f'./temp/{title}'):
-        shutil.rmtree(f'./temp/{title}')
-    os.makedirs(f'./temp/{title}')
+    tempdir = './temp/' + title
+    if os.path.exists(tempdir):
+        shutil.rmtree(tempdir)
+    os.makedirs(tempdir)
 
     for pages in trange(num_of_pages):
         time.sleep(0.5)
@@ -82,9 +82,10 @@ def download(url):
         img_data = driver.execute_script(js_cmd)
 
         img_data = (img_data[22:]).encode()
-
-        with open(f"./temp/{title}/{pages}.png", "wb") as fh:
+        tempPage = './temp/' + title + '/' + pages + '.png'
+        with open(tempPage, "wb") as fh:
             fh.write(base64.decodebytes(img_data))
     driver.quit()
     print('下载完毕，正在转码')
-    conpdf(f'output/{title}.pdf', f'temp/{title}', '.png')
+    outputfile = 'output/' + title + '.pdf'
+    conpdf(outputfile, tempdir, '.png')
