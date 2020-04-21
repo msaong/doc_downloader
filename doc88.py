@@ -20,7 +20,7 @@ def download(url):
     # option.add_argument('headless')
     option.add_argument('log-level=3')
     driver = webdriver.Chrome(
-        executable_path='.//chromedriver', chrome_options=option)
+        executable_path='/usr/bin/chromedriver', chrome_options=option)
 
     title = "output"
     try:
