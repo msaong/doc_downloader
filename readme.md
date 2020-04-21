@@ -3,7 +3,6 @@
 
 其中，由于新浪爱问网站用的都是svg格式的文件，将其转换成图片格式需要调用第三方库。Windows下可用svg2png库，Linux下可使用rsvg库。当然，在windows上面也可以安装rsvg库，需要下载CRAN，利用CRAN安装rsvg，实现svg的转换。
 
-### 本项目还提供了一个简易的在线下载网页，[点击进入](http://129.211.158.185/)
 
 ## rsvg库安装方法
 Binary packages for __OS-X__ or __Windows__ can be installed directly from CRAN:
@@ -40,4 +39,24 @@ brew install librsvg
 终端内输入：
 ```
 python docDownloader.py
+```
+
+## linux服务器部署内容
+```
+# 安装google chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+sudo apt-get install -f
+sudo apt-get install xvfb
+ 
+# 查看安装的版本
+google-chrome --version
+
+# 下载对应驱动，请下载对应版本的，打开这个地址看：https://npm.taobao.org/mirrors/chromedriver/
+wget https://npm.taobao.org/mirrors/chromedriver/81.0.4044.69/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo chmod +x chromedriver
+sudo mv -f chromedriver /usr/local/share/chromedriver
+sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
 ```
