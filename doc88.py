@@ -30,7 +30,7 @@ def download(url):
     except:
         print("Timeout - start download anyway.")
 
-    print(f'道客巴巴: <'+ title + '>')
+    print('道客巴巴: <'+ title + '>')
     time.sleep(5)
 
     try:
