@@ -1,16 +1,7 @@
 selenium
-base64
-time
-sys
-os
 tqdm
 img2pdf
-urllib
-shutil
 requests
-PIL
-string
 reportlab
-re
 bs4
 fire
